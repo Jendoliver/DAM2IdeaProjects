@@ -1,5 +1,7 @@
 package com.apporelbotna;
 
+import com.sun.istack.internal.Nullable;
+
 public class Client
 {
     private String nif;
@@ -8,7 +10,7 @@ public class Client
     private String surname2;
     private String telephone;
     private String email;
-    private Camera rentedCamera;
+    private CameraItem rentedCamera;
 
     public Client(String nif, String name, String surname1, String surname2, String telephone, String email)
     {
@@ -18,6 +20,7 @@ public class Client
         this.surname2 = surname2;
         this.telephone = telephone;
         this.email = email;
+        this.rentedCamera = null;
     }
 
     public String getNif() {
@@ -44,9 +47,7 @@ public class Client
         this.surname1 = surname1;
     }
 
-    public String getSurname2() {
-        return surname2;
-    }
+    public String getSurname2() { return surname2; }
 
     public void setSurname2(String surname2) {
         this.surname2 = surname2;
@@ -68,21 +69,29 @@ public class Client
         this.email = email;
     }
 
-    public Camera getRentedCamera() {
+    @Nullable
+    public CameraItem getRentedCamera() {
         return rentedCamera;
     }
 
-    public void setRentedCamera(Camera rentedCamera) {
+    public void setRentedCamera(CameraItem rentedCamera) {
         this.rentedCamera = rentedCamera;
     }
 
     @Override
     public String toString() {
-        return "--- CLIENT DATA ---\n" +
+        String s = "--- CLIENT DATA ---\n" +
                 "NIF: " + this.nif + "\n" +
                 "Name: " + this.name + " " + this.surname1 + " " + this.surname2 + "\n" +
                 "Telephone: " + this.telephone + "\n" +
                 "Email: " + this.email + "\n" +
-                "";
+                "Rented camera: ";
+
+        if(rentedCamera != null) {
+            s += this.rentedCamera.getReference() + "\n\n";
+        } else {
+            s += "none\n\n";
+        }
+        return s;
     }
 }

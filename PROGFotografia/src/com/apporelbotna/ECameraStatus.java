@@ -1,6 +1,6 @@
 package com.apporelbotna;
 
-public enum CameraStatus
+public enum ECameraStatus
 {
     ON_SHOP,
     RENTED,
