@@ -78,6 +78,10 @@ public class Client
         this.rentedCamera = rentedCamera;
     }
 
+    public boolean equals(Client client) {
+        return this.nif.equals(client.getNif());
+    }
+
     @Override
     public String toString() {
         String s = "--- CLIENT DATA ---\n" +

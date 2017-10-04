@@ -2,6 +2,7 @@ package com.apporelbotna;
 import com.sun.istack.internal.Nullable;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Shop
 {
@@ -35,7 +36,9 @@ public class Shop
         this.cameras = cameras;
     }
 
-    public ArrayList<CameraItem> getCameraItems() {
+    public ArrayList<CameraItem> getCameraItems()
+    {
+        Collections.sort(this.cameraItems);
         return cameraItems;
     }
 
@@ -79,6 +82,7 @@ public class Shop
             return ERentCameraNotification.CLIENT_HAS_CAMERA;
 
         rentals.add(new Rental(client, cameraItem));
+        client.setRentedCamera(cameraItem);
         return ERentCameraNotification.SUCCESSFUL;
     }
 
@@ -99,8 +103,13 @@ public class Shop
     {
         ArrayList<Rental> rentalsByClient = new ArrayList<>();
         Client client = findClientByNif(clientNif);
-
-        // TODO
+        for(Rental rental : rentals)
+        {
+            if(rental.getClient().equals(client)) {
+                rentalsByClient.add(rental);
+            }
+        }
+        Collections.sort(rentalsByClient);
         return rentalsByClient;
     }
 

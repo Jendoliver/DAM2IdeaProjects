@@ -2,7 +2,7 @@ package com.apporelbotna;
 
 import java.util.Date;
 
-public class Rental
+public class Rental implements Comparable<Rental>
 {
     private Client client;
     private CameraItem cameraItem;
@@ -37,6 +37,11 @@ public class Rental
 
     public void setRentalDate(Date rentalDate) {
         this.rentalDate = rentalDate;
+    }
+
+    @Override
+    public int compareTo(Rental rental) {
+        return this.rentalDate.compareTo(rental.getRentalDate());
     }
 
     @Override

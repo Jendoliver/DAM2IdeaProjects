@@ -28,6 +28,10 @@ public class CameraItem extends Camera
         this.status = status;
     }
 
+    public boolean equals(CameraItem cameraItem) {
+        return this.reference.equals(cameraItem.getReference());
+    }
+
     @Override
     public String toString() {
         return super.toString() +

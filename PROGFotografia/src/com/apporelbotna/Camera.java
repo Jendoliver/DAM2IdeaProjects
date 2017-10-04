@@ -1,6 +1,6 @@
 package com.apporelbotna;
 
-public class Camera
+public class Camera implements Comparable<Camera>
 {
     private Brand brand;
     private String model;
@@ -35,6 +35,11 @@ public class Camera
 
     public void setbFlash(boolean bFlash) {
         this.bFlash = bFlash;
+    }
+
+    @Override
+    public int compareTo(Camera camera) {
+        return this.brand.getName().compareTo(camera.getBrand().getName());
     }
 
     @Override
