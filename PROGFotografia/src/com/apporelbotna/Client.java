@@ -8,16 +8,18 @@ public class Client
     private String name;
     private String surname1;
     private String surname2;
+    private String address;
     private String telephone;
     private String email;
     private CameraItem rentedCamera;
 
-    public Client(String nif, String name, String surname1, String surname2, String telephone, String email)
+    public Client(String nif, String name, String surname1, String surname2, String address, String telephone, String email)
     {
         this.nif = nif;
         this.name = name;
         this.surname1 = surname1;
         this.surname2 = surname2;
+        this.address = address;
         this.telephone = telephone;
         this.email = email;
         this.rentedCamera = null;
@@ -51,6 +53,14 @@ public class Client
 
     public void setSurname2(String surname2) {
         this.surname2 = surname2;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getTelephone() {

@@ -6,13 +6,17 @@ import java.util.Collections;
 
 public class Shop
 {
+    private String name;
+    private String address;
     private ArrayList<Client> clients;
     private ArrayList<Camera> cameras;
     private ArrayList<CameraItem> cameraItems;
     private ArrayList<Rental> rentals;
 
-    public Shop()
+    public Shop(String name, String address)
     {
+        this.name = name;
+        this.address = address;
         this.clients = new ArrayList<>();
         this.cameras = new ArrayList<>();
         this.cameraItems = new ArrayList<>();
@@ -20,6 +24,23 @@ public class Shop
     }
 
     // Getters and setters
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     public ArrayList<Client> getClients() {
         return clients;
     }
@@ -83,6 +104,7 @@ public class Shop
 
         rentals.add(new Rental(client, cameraItem));
         client.setRentedCamera(cameraItem);
+        cameraItem.setStatus(ECameraStatus.RENTED);
         return ERentCameraNotification.SUCCESSFUL;
     }
 
@@ -95,6 +117,7 @@ public class Shop
         if(client.getRentedCamera() == null)
             return EReturnCameraNotification.NO_CAMERA;
 
+        client.getRentedCamera().setStatus(ECameraStatus.ON_SHOP);
         client.setRentedCamera(null);
         return EReturnCameraNotification.SUCCESSFUL;
     }
@@ -135,5 +158,15 @@ public class Shop
             }
         }
         return null;
+    }
+
+    @Override
+    public String toString() {
+        return "--- SHOP DATA ---\n" +
+                "Name: " + this.name + "\n" +
+                "Address: " + this.address + "\n" +
+                "Number of clients: " + this.clients.size() + "\n" +
+                "Number of items: " + this.cameraItems.size() + "\n" +
+                "Number of rentals: " + this.rentals.size() + "\n\n";
     }
 }
