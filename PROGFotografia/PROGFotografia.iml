@@ -10,7 +10,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://E:/libs/Java/InputAsker.jar!/" />
+          <root url="jar://E:/libs/Java/JARS/InputAsker.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

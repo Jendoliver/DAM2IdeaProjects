@@ -42,11 +42,26 @@ public class Main
     {
         switch(option)
         {
-            case 1: shops.get(selectedShop).addClient(askClientDetails()); break;
-            case 2: shops.get(selectedShop).addCamera(askCameraTypeDetails(true)); break;
-            case 3: shops.get(selectedShop).addCameraItem(askCameraItemDetails()); break; // TODO: shouldn't this show the existing Camera objects and make the user select from one of them and just add a reference?
-            case 4: shops.get(selectedShop).rentCameraItem(InputAsker.askNonEmptyString("Item reference: "), InputAsker.askNonEmptyString("Client NIF: ")); break; // TODO: different messages depending on enum
-            case 5: shops.get(selectedShop).returnCamera(InputAsker.askNonEmptyString("Client NIF: ")); break; // TODO: different messages depending on enum
+            case 1:
+                try {
+                    shops.get(selectedShop).addClient(askClientDetails());
+                } catch (AlreadyExistsException e) {
+                    System.out.println(e.getMessage());
+                } break;
+            case 2:
+                try {
+                    shops.get(selectedShop).addCamera(askCameraTypeDetails(true));
+                } catch (AlreadyExistsException e) {
+                    System.out.println(e.getMessage());
+                } break;
+            case 3:
+                try {
+                    shops.get(selectedShop).addCameraItem(askCameraItemDetails());
+                } catch (AlreadyExistsException e) {
+                    System.out.println(e.getMessage());
+                } break; // TODO: shouldn't this show the existing Camera objects and make the user select from one of them and just add a reference?
+            case 4: ERentCameraNotification.printRentCameraNotification(shops.get(selectedShop).rentCameraItem(InputAsker.askNonEmptyString("Item reference: "), InputAsker.askNonEmptyString("Client NIF: "))); break;
+            case 5: EReturnCameraNotification.printReturnCameraNotification(shops.get(selectedShop).returnCamera(InputAsker.askNonEmptyString("Client NIF: "))); break;
             case 6: shops.get(selectedShop).getRentalsByClient(InputAsker.askNonEmptyString("Client NIF: ")).forEach(System.out::println); break;
             case 7: shops.get(selectedShop).getCameraItems().forEach(System.out::println); break;
             case 8: System.out.println(shops.get(selectedShop)); break;
@@ -86,7 +101,7 @@ public class Main
         );
     }
 
-    private static CameraItem askCameraItemDetails()
+    private static CameraItem askCameraItemDetails() // TODO: Refactor this so the user selects a camera from the existing ones
     {
         System.out.println("--- NEW CAMERA ITEM: Please provide details below ---");
         Camera cameraType = askCameraTypeDetails(false);

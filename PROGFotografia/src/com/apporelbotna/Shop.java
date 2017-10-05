@@ -76,15 +76,24 @@ public class Shop
     }
 
     // Methods
-    public void addClient(Client client) {
+    public void addClient(Client client) throws AlreadyExistsException
+    {
+        if(findClientByNif(client.getNif()) != null)
+            throw new AlreadyExistsException(client);
         clients.add(client);
     }
 
-    public void addCamera(Camera camera) {
+    public void addCamera(Camera camera) throws AlreadyExistsException
+    {
+        if(findCameraByBrandNameAndModel(camera.getBrand().getName(), camera.getModel()) != null)
+            throw new AlreadyExistsException(camera);
         cameras.add(camera);
     }
 
-    public void addCameraItem(CameraItem cameraItem) {
+    public void addCameraItem(CameraItem cameraItem)  throws AlreadyExistsException
+    {
+        if(findCameraItemByReference(cameraItem.getReference()) != null)
+            throw new AlreadyExistsException(cameraItem);
         cameraItems.add(cameraItem);
     }
 
@@ -115,7 +124,7 @@ public class Shop
         if(client == null)
             return EReturnCameraNotification.CLIENT_DOESNT_EXIST;
         if(client.getRentedCamera() == null)
-            return EReturnCameraNotification.NO_CAMERA;
+            return EReturnCameraNotification.CLIENT_HASNT_GOT_CAMERA;
 
         client.getRentedCamera().setStatus(ECameraStatus.ON_SHOP);
         client.setRentedCamera(null);
@@ -137,12 +146,24 @@ public class Shop
     }
 
     @Nullable
-    private CameraItem findCameraItemByReference(String cameraReference)
+    private Camera findCameraByBrandNameAndModel(String brandName, String model)
     {
-        for(CameraItem camera : cameraItems)
+        for(Camera camera : cameras)
         {
-            if(camera.getReference().equals(cameraReference)) {
+            if(camera.getBrand().getName().equals(brandName) && camera.getModel().equals(model)) {
                 return camera;
+            }
+        }
+        return null;
+    }
+
+    @Nullable
+    private CameraItem findCameraItemByReference(String cameraItemReference)
+    {
+        for(CameraItem cameraItem : cameraItems)
+        {
+            if(cameraItem.getReference().equals(cameraItemReference)) {
+                return cameraItem;
             }
         }
         return null;
