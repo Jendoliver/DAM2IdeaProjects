@@ -2,7 +2,7 @@ package com.apporelbotna;
 
 import com.sun.istack.internal.Nullable;
 
-public class Client
+public class Client implements Comparable<Client>
 {
     private String nif;
     private String name;
@@ -90,6 +90,11 @@ public class Client
 
     public boolean equals(Client client) {
         return this.nif.equals(client.getNif());
+    }
+
+    @Override
+    public int compareTo(Client client) {
+        return this.getSurname1().compareTo(client.getSurname1());
     }
 
     @Override

@@ -5,6 +5,13 @@ public class CameraItem extends Camera
     private String reference;
     private ECameraStatus status;
 
+    public CameraItem(Camera camera, String reference)
+    {
+        super(camera.getBrand(), camera.getModel(), camera.hasFlash());
+        this.reference = reference;
+        this.status = ECameraStatus.ON_SHOP;
+    }
+
     public CameraItem(Brand brand, String model, boolean bFlash, String reference)
     {
         super(brand, model, bFlash);

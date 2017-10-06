@@ -3,7 +3,7 @@ package com.apporelbotna;
 public class AlreadyExistsException extends Exception
 {
     public AlreadyExistsException(Client client) {
-        super(String.format("The client with NIF %s already exists", client.getNif()));
+        super(String.format("A client with NIF %s already exists", client.getNif()));
     }
 
     public AlreadyExistsException(Camera camera) {

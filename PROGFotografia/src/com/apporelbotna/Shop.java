@@ -42,6 +42,7 @@ public class Shop
     }
 
     public ArrayList<Client> getClients() {
+        Collections.sort(this.clients);
         return clients;
     }
 
@@ -50,6 +51,7 @@ public class Shop
     }
 
     public ArrayList<Camera> getCameras() {
+        Collections.sort(this.cameras);
         return cameras;
     }
 
@@ -57,8 +59,7 @@ public class Shop
         this.cameras = cameras;
     }
 
-    public ArrayList<CameraItem> getCameraItems()
-    {
+    public ArrayList<CameraItem> getCameraItems() {
         Collections.sort(this.cameraItems);
         return cameraItems;
     }
@@ -100,11 +101,12 @@ public class Shop
     public ERentCameraNotification rentCameraItem(String cameraItemReference, String clientNif)
     {
         CameraItem cameraItem = findCameraItemByReference(cameraItemReference);
-        Client client = findClientByNif(clientNif);
-
         if(cameraItem == null)
             return ERentCameraNotification.CAMERA_DOESNT_EXIST;
+        if(cameraItem.getStatus() == ECameraStatus.RENTED)
+            return ERentCameraNotification.ALREADY_RENTED;
 
+        Client client = findClientByNif(clientNif);
         if(client == null)
             return ERentCameraNotification.CLIENT_DOESNT_EXIST;
 
@@ -143,6 +145,21 @@ public class Shop
         }
         Collections.sort(rentalsByClient);
         return rentalsByClient;
+    }
+
+    public ArrayList<Client> getDefaulterClientsList() // Gets the clients which should have already returned the camera
+    {
+        ArrayList<Client> defaulterClients = new ArrayList<>();
+        for(Rental rental : rentals)
+        {
+            if(rental.getCameraItem().getStatus() == ECameraStatus.RENTED)
+            {
+                if(System.currentTimeMillis() - rental.getRentalDate().getTime() > 604800000) { // 7 days
+                    defaulterClients.add(rental.getClient());
+                }
+            }
+        }
+        return defaulterClients;
     }
 
     @Nullable
@@ -187,7 +204,8 @@ public class Shop
                 "Name: " + this.name + "\n" +
                 "Address: " + this.address + "\n" +
                 "Number of clients: " + this.clients.size() + "\n" +
+                "Number of camera types: " + this.cameras.size() + "\n" +
                 "Number of items: " + this.cameraItems.size() + "\n" +
-                "Number of rentals: " + this.rentals.size() + "\n\n";
+                "Total of rentals made: " + this.rentals.size() + "\n\n";
     }
 }

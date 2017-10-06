@@ -47,8 +47,8 @@ public class Rental implements Comparable<Rental>
     @Override
     public String toString() {
         return "--- RENTAL REPORT ---\n" +
-                "Client renting: " + this.client + "\n" +
-                "Camera item rented: " + this.cameraItem + "\n" +
+                "Client renting: " + this.client.getName() +" "+ this.client.getSurname1() +" "+ this.client.getSurname2() + " (NIF: " + this.client.getNif() + ")\n" +
+                "Camera item reference: " + this.cameraItem.getReference() + "\n" +
                 "Rental date: " + this.rentalDate + "\n\n";
     }
 }
