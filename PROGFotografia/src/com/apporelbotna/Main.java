@@ -123,16 +123,7 @@ public class Main
             System.out.println(camera);
             cameraIndex++;
         }
-        boolean error = true;
-        Camera selectedCamera = null;
-        do {
-            try {
-                selectedCamera = selectedShop.getCameras().get(InputAsker.askInt("Selected camera: ") - 1);
-                error = false;
-            } catch (IndexOutOfBoundsException e) {
-                System.out.printf("Please select an existing camera (a number between 1 and %d)%n", selectedShop.getCameras().size());
-            }
-        } while (error);
+        Camera selectedCamera = selectedShop.getCameras().get(InputAsker.askIntBetween("Selected camera: ", 1, selectedShop.getCameras().size()) - 1);
         return new CameraItem(
                 selectedCamera,
                 InputAsker.askNonEmptyString("New Camera Item reference: ")
@@ -174,18 +165,6 @@ public class Main
             System.out.println(shop);
             shopIndex++;
         }
-        boolean error = true;
-        int newSelectedShop = 0;
-        do {
-            try {
-                newSelectedShop = (InputAsker.askInt("Selected shop: ") - 1);
-                if(newSelectedShop < 0 || newSelectedShop > shops.size() - 1)
-                    throw new IndexOutOfBoundsException();
-                error = false;
-            } catch (IndexOutOfBoundsException e) {
-                System.out.printf("Please select an existing shop (a number between 1 and %d)%n", shops.size());
-            }
-        } while (error);
-        selectedShop = shops.get(newSelectedShop);
+        selectedShop = shops.get(InputAsker.askIntBetween("Selected shop: ", 1, shops.size()) - 1);
     }
 }
