@@ -91,7 +91,7 @@ public class Shop
         cameras.add(camera);
     }
 
-    public void addCameraItem(CameraItem cameraItem)  throws AlreadyExistsException
+    public void addCameraItem(CameraItem cameraItem) throws AlreadyExistsException
     {
         if(findCameraItemByReference(cameraItem.getReference()) != null)
             throw new AlreadyExistsException(cameraItem);
