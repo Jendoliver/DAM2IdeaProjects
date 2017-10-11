@@ -3,8 +3,8 @@ package com.apporelbotna;
 import com.jendoliver.io.InputAsker;
 import java.io.File;
 
-public class Main
-{
+public class Main {
+
     public static void main(String[] args)
     {
         File dir;
@@ -14,12 +14,15 @@ public class Main
             return;
         }
         System.out.println("Directory found!");
-        String stringToSearch = InputAsker.askNonEmptyString("Input the word to search in the file names: ");
-        File[] files = dir.listFiles((dir1, name) -> name.toLowerCase().contains(stringToSearch.toLowerCase()));
+        File[] files = dir.listFiles();
         assert files != null;
+
+        System.out.println("--- LS ---");
         for (File file : files) {
             if(file.isFile()) {
-                System.out.println(file.getName());
+                System.out.println(file.getName() + " - File");
+            } else if (file.isDirectory()) {
+                System.out.println(file.getName() + " - Directory");
             }
         }
     }

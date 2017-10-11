@@ -12,7 +12,7 @@ public class Main
     {
         File dir;
         dir = (args.length > 0) ? new File(args[0]) : new File(InputAsker.askNonEmptyString("Input the route of the file to search: "));
-	    if( ! dir.exists()) {
+        if( ! dir.exists()) {
             System.out.println("Directory not found");
             return;
         }
