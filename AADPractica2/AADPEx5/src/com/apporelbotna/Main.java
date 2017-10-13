@@ -2,7 +2,6 @@ package com.apporelbotna;
 
 import com.jendoliver.io.InputAsker;
 import java.io.File;
-import java.io.FilenameFilter;
 import java.io.IOException;
 import java.nio.file.Files;
 
@@ -15,12 +14,7 @@ public class Main {
             return;
         }
         System.out.println("Directory found!");
-        File[] files = dir.listFiles(new FilenameFilter() {
-            @Override
-            public boolean accept(File dir, String name) {
-                return Character.isDigit(name.charAt(0));
-            }
-        });
+        File[] files = dir.listFiles((dir1, name) -> Character.isDigit(name.charAt(0)));
         assert files != null;
 
         for(File file : files) {
