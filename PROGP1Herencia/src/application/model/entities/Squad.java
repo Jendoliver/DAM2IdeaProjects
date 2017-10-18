@@ -1,6 +1,6 @@
-package entities;
+package application.model.entities;
 
-public abstract class Squad
+public abstract class Squad implements Comparable<Squad>
 {
     private String name;
     private int nVictories;
@@ -26,19 +26,16 @@ public abstract class Squad
     public void setnVictories(int nVictories) {
         this.nVictories = nVictories;
     }
-    public int getAtkLevel() {
-        return atkLevel;
-    }
-    public void setAtkLevel(int atkLevel) {
-        this.atkLevel = atkLevel;
-    }
-    public int getDefLevel() {
-        return defLevel;
-    }
-    public void setDefLevel(int defLevel) {
-        this.defLevel = defLevel;
-    }
+    public void addVictory() { this.nVictories++; }
 
-    protected abstract double calculateAtkPower();
-    protected abstract double calculateDefPower();
+    public abstract double calculateAtkPower();
+    public abstract double calculateDefPower();
+
+    @Override
+    public abstract String toString();
+
+    @Override
+    public int compareTo(Squad squad) {
+        return Integer.compare(nVictories, squad.nVictories);
+    }
 }

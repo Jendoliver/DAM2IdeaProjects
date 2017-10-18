@@ -1,4 +1,4 @@
-package entities;
+package application.model.entities;
 
 public class ProtossSquad extends Squad
 {
@@ -17,12 +17,17 @@ public class ProtossSquad extends Squad
     }
 
     @Override
-    protected double calculateAtkPower() {
+    public double calculateAtkPower() {
         return atkLevel + atkLevel*nPylons*0.5;
     }
 
     @Override
-    protected double calculateDefPower() {
+    public double calculateDefPower() {
         return defLevel + defLevel*nPylons*0.5;
+    }
+
+    @Override
+    public String toString() {
+        return "Protoss {nombre="+super.getName()+", victorias="+super.getnVictories()+", pilones="+nPylons+"}\n";
     }
 }

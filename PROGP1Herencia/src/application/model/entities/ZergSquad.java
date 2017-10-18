@@ -1,4 +1,4 @@
-package entities;
+package application.model.entities;
 
 public class ZergSquad extends Squad
 {
@@ -26,12 +26,17 @@ public class ZergSquad extends Squad
 
 
     @Override
-    protected double calculateAtkPower() {
+    public double calculateAtkPower() {
         return atkLevel + atkLevel*nMinions*0.15 + atkLevel*nOverlords*0.4;
     }
 
     @Override
-    protected double calculateDefPower() {
+    public double calculateDefPower() {
         return defLevel + defLevel*nMinions*0.3;
+    }
+
+    @Override
+    public String toString() {
+        return "Zerg {nombre="+super.getName()+", victorias="+super.getnVictories()+", esbirros="+nMinions+", overlords="+nOverlords+"}\n";
     }
 }

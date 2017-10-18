@@ -1,4 +1,4 @@
-package entities;
+package application.model.entities;
 
 public class TerranSquad extends Squad
 {
@@ -25,12 +25,17 @@ public class TerranSquad extends Squad
     }
 
     @Override
-    protected double calculateAtkPower() {
+    public double calculateAtkPower() {
         return atkLevel + atkLevel*techLevel*0.5;
     }
 
     @Override
-    protected double calculateDefPower() {
+    public double calculateDefPower() {
         return defLevel + defLevel*nBuildings*0.25;
+    }
+
+    @Override
+    public String toString() {
+        return "Terran {nombre="+super.getName()+", victorias="+super.getnVictories()+", edificios="+nBuildings+", tecnologia="+techLevel+"}\n";
     }
 }
