@@ -136,27 +136,10 @@ public class Model
         } catch (NumberFormatException e) {
             throw new InvalidDataException("< ERROR 003: Dato incorrecto >");
         }
-        // TODO: REFACTOR THIS SHIT SO IMPROVE IS A SQUAD METHOD IMPLEMENTED BY EACH SUBCLASS
-        if(squadToImprove instanceof TerranSquad) {
-            switch (propertyToImprove) {
-                case "edificios": ((TerranSquad) squadToImprove).setnBuildings(newPropertyValue); break;
-                case "tecnologia": case "tecnología": ((TerranSquad) squadToImprove).setTechLevel(newPropertyValue); break;
-                default: throw new InvalidDataException("< ERROR 006: Propiedad incorrecta>");
-            }
-        } else if(squadToImprove instanceof ZergSquad) {
-            switch (propertyToImprove) {
-                case "esbirros": ((ZergSquad) squadToImprove).setnMinions(newPropertyValue); break;
-                case "overlords": ((ZergSquad) squadToImprove).setnOverlords(newPropertyValue); break;
-                default: throw new InvalidDataException("< ERROR 006: Propiedad incorrecta>");
-            }
-        } else if(squadToImprove instanceof ProtossSquad){
-            if(propertyToImprove.equals("pilones")) {
-                ((ProtossSquad) squadToImprove).setnPylons(newPropertyValue);
-            } else {
-                throw new InvalidDataException("< ERROR 006: Propiedad incorrecta>");
-            }
+        if(squadToImprove.improve(propertyToImprove, newPropertyValue)) {
+            return "<OK: Propiedad mejorada>";
         }
-        return "<OK: Propiedad mejorada>";
+        throw new InvalidDataException("< ERROR 006: Propiedad incorrecta>");
     }
 
     public String getRanking() {

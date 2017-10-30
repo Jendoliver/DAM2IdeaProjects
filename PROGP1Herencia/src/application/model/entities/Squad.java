@@ -30,6 +30,7 @@ public abstract class Squad implements Comparable<Squad>
 
     public abstract double calculateAtkPower();
     public abstract double calculateDefPower();
+    public abstract boolean improve(String propertyToImprove, int newPropertyValue);
 
     @Override
     public abstract String toString();

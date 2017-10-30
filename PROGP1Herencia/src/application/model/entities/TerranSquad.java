@@ -35,6 +35,16 @@ public class TerranSquad extends Squad
     }
 
     @Override
+    public boolean improve(String propertyToImprove, int newPropertyValue) {
+        switch(propertyToImprove) {
+            case "edificios": this.setnBuildings(newPropertyValue); break;
+            case "tecnologia": this.setTechLevel(newPropertyValue); break;
+            default: return false;
+        }
+        return true;
+    }
+
+    @Override
     public String toString() {
         return "Terran {nombre="+super.getName()+", victorias="+super.getnVictories()+", edificios="+nBuildings+", tecnologia="+techLevel+"}\n";
     }

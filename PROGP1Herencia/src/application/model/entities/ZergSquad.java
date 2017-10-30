@@ -36,6 +36,16 @@ public class ZergSquad extends Squad
     }
 
     @Override
+    public boolean improve(String propertyToImprove, int newPropertyValue) {
+        switch(propertyToImprove) {
+            case "esbirros": this.setnMinions(newPropertyValue); break;
+            case "overlords": this.setnOverlords(newPropertyValue); break;
+            default: return false;
+        }
+        return true;
+    }
+
+    @Override
     public String toString() {
         return "Zerg {nombre="+super.getName()+", victorias="+super.getnVictories()+", esbirros="+nMinions+", overlords="+nOverlords+"}\n";
     }

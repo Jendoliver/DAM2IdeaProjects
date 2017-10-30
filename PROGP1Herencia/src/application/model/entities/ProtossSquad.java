@@ -27,6 +27,15 @@ public class ProtossSquad extends Squad
     }
 
     @Override
+    public boolean improve(String propertyToImprove, int newPropertyValue) {
+        if(propertyToImprove.equals("pilones")) {
+            this.setnPylons(newPropertyValue);
+            return true;
+        }
+        return false;
+    }
+
+    @Override
     public String toString() {
         return "Protoss {nombre="+super.getName()+", victorias="+super.getnVictories()+", pilones="+nPylons+"}\n";
     }
