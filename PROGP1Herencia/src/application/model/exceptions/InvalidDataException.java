@@ -9,6 +9,8 @@ package application.model.exceptions;
  *  - invalid property of a squad when trying to modify it (ERROR 006)
  */
 public class InvalidDataException extends Exception {
+
+
     public InvalidDataException(String error) {
         super(error);
     }

@@ -14,7 +14,6 @@ import java.util.LinkedList;
  */
 public class Controller
 {
-    private String operation;
     private LinkedList<String> splittedOperation;
     private Model model;
 
@@ -35,7 +34,6 @@ public class Controller
         return gameLoop;
     }
     public void setOperation(String operation) {
-        this.operation = operation;
         splittedOperation = new LinkedList<>(Arrays.asList(operation.split("\\s+")));
     }
 

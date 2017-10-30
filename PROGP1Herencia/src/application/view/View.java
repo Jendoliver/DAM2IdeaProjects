@@ -5,7 +5,7 @@ import com.jendoliver.io.InputAsker;
 
 /**
  * View: the view of the game, a terminal on which the user can provide input
- * and recieves outputs from the controller
+ * and recieve output from the controller
  */
 public class View
 {
@@ -13,7 +13,7 @@ public class View
     {
         Controller gameController = new Controller();
         do {
-            gameController.setOperation(InputAsker.askNonEmptyString("Input your operation: "));
+            gameController.setOperation(InputAsker.askString(""));
             gameController.processOperation();
             System.out.println(gameController.getOutput());
         } while (gameController.isGameLooping());

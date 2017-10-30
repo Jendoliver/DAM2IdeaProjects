@@ -5,10 +5,7 @@ import application.model.exceptions.AlreadyExistsException;
 import application.model.exceptions.DoesntExistException;
 import application.model.exceptions.InvalidDataException;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.LinkedList;
+import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
@@ -17,7 +14,7 @@ import java.util.concurrent.ThreadLocalRandom;
  */
 public class Model
 {
-    private HashMap<String, Squad> squads;
+    private Map<String, Squad> squads;
 
     public Model() {
         squads = new HashMap<>();
@@ -105,7 +102,7 @@ public class Model
                 output.append("Asalto sin ganador. Ha habido empate.\n");
             }
         }
-        output.append("<Fin batalla...>").append("\n");
+        output.append("<Fin batalla...>\n");
         if(squad1WonRounds > squad2WonRounds) { // Squad 1 wins
             output.append("<OK: La batalla la ha ganado el escuadron ").append(squad1Name).append(" con ").append(squad1WonRounds).append(" asaltos\n");
             squad1.addVictory();
@@ -139,6 +136,7 @@ public class Model
         } catch (NumberFormatException e) {
             throw new InvalidDataException("< ERROR 003: Dato incorrecto >");
         }
+        // TODO: REFACTOR THIS SHIT SO IMPROVE IS A SQUAD METHOD IMPLEMENTED BY EACH SUBCLASS
         if(squadToImprove instanceof TerranSquad) {
             switch (propertyToImprove) {
                 case "edificios": ((TerranSquad) squadToImprove).setnBuildings(newPropertyValue); break;
@@ -165,7 +163,7 @@ public class Model
         if(squads.isEmpty()) {
             return "< CLASIFICACION: No hay escuadrones registrados >";
         }
-        ArrayList<Squad> ranking = new ArrayList<>(squads.values());
+        List<Squad> ranking = new ArrayList<>(squads.values());
         Collections.sort(ranking);
         StringBuilder output = new StringBuilder("< CLASIFICACION ACTUAL >\n");
         for(int i = 0; i < GameStatics.NUM_SQUADS_RANKING; i++) {

@@ -1,0 +1,274 @@
+< ERROR 004: Operación incorrecta >
+
+<OK: Escuadrón registrado>
+< ERROR 002: Especie incorrecta >
+<OK: Escuadrón registrado>
+<OK: Escuadrón registrado>
+< ERROR 001: Nº de argumentos inválido >
+< ERROR 003: Dato incorrecto >
+<OK: Escuadrón registrado>
+<OK: Escuadrón registrado>
+< ERROR 001: Nº de argumentos inválido >
+<Inicio batalla...>
+Asalto nº 1
+Ataca ashtar - Nº Aleatorio: 3 - Valor de su ataque: 15.0
+Ataca icheb - Nº Aleatorio: 5 - Valor de su ataque: 5.0
+Ganador del asalto: ashtar
+Asalto nº 2
+Ataca ashtar - Nº Aleatorio: 2 - Valor de su ataque: 14.0
+Ataca icheb - Nº Aleatorio: 5 - Valor de su ataque: 5.0
+Ganador del asalto: ashtar
+Asalto nº 3
+Ataca ashtar - Nº Aleatorio: 8 - Valor de su ataque: 20.0
+Ataca icheb - Nº Aleatorio: 0 - Valor de su ataque: 0.0
+Ganador del asalto: ashtar
+Asalto nº 4
+Ataca ashtar - Nº Aleatorio: 4 - Valor de su ataque: 16.0
+Ataca icheb - Nº Aleatorio: 1 - Valor de su ataque: 1.0
+Ganador del asalto: ashtar
+Asalto nº 5
+Ataca ashtar - Nº Aleatorio: 5 - Valor de su ataque: 17.0
+Ataca icheb - Nº Aleatorio: 4 - Valor de su ataque: 4.0
+Ganador del asalto: ashtar
+<Fin batalla...>
+<OK: La batalla la ha ganado el escuadron ashtar con 5 asaltos
+
+< ERROR 005: No existe un escuadron con ese nombre >
+< ERROR 006: Propiedad incorrecta>
+<OK: Propiedad mejorada>
+< ERROR 003: Dato incorrecto >
+< CLASIFICACION ACTUAL >
+Terran {nombre=auton, victorias=0, edificios=8, tecnologia=6}
+Protoss {nombre=shurara, victorias=0, pilones=15}
+Zerg {nombre=kururu, victorias=0, esbirros=40, overlords=2}
+
+<Inicio batalla...>
+Asalto nº 1
+Ataca shurara - Nº Aleatorio: 8 - Valor de su ataque: 86.0
+Ataca auton - Nº Aleatorio: 5 - Valor de su ataque: 5.0
+Ganador del asalto: shurara
+Asalto nº 2
+Ataca shurara - Nº Aleatorio: 1 - Valor de su ataque: 79.0
+Ataca auton - Nº Aleatorio: 9 - Valor de su ataque: 9.0
+Ganador del asalto: shurara
+Asalto nº 3
+Ataca shurara - Nº Aleatorio: 2 - Valor de su ataque: 80.0
+Ataca auton - Nº Aleatorio: 0 - Valor de su ataque: 0.0
+Ganador del asalto: shurara
+Asalto nº 4
+Ataca shurara - Nº Aleatorio: 3 - Valor de su ataque: 81.0
+Ataca auton - Nº Aleatorio: 3 - Valor de su ataque: 3.0
+Ganador del asalto: shurara
+Asalto nº 5
+Ataca shurara - Nº Aleatorio: 5 - Valor de su ataque: 83.0
+Ataca auton - Nº Aleatorio: 8 - Valor de su ataque: 8.0
+Ganador del asalto: shurara
+<Fin batalla...>
+<OK: La batalla la ha ganado el escuadron shurara con 5 asaltos
+
+< ERROR 004: Operación incorrecta >
+
+<Inicio batalla...>
+Asalto nº 1
+Ataca ashtar - Nº Aleatorio: 5 - Valor de su ataque: 5.0
+Ataca kururu - Nº Aleatorio: 8 - Valor de su ataque: 8.599999999999994
+Ganador del asalto: kururu
+Asalto nº 2
+Ataca ashtar - Nº Aleatorio: 7 - Valor de su ataque: 7.0
+Ataca kururu - Nº Aleatorio: 1 - Valor de su ataque: 1.5999999999999943
+Ganador del asalto: ashtar
+Asalto nº 3
+Ataca ashtar - Nº Aleatorio: 2 - Valor de su ataque: 2.0
+Ataca kururu - Nº Aleatorio: 4 - Valor de su ataque: 4.599999999999994
+Ganador del asalto: kururu
+Asalto nº 4
+Ataca ashtar - Nº Aleatorio: 6 - Valor de su ataque: 6.0
+Ataca kururu - Nº Aleatorio: 8 - Valor de su ataque: 8.599999999999994
+Ganador del asalto: kururu
+Asalto nº 5
+Ataca ashtar - Nº Aleatorio: 1 - Valor de su ataque: 1.0
+Ataca kururu - Nº Aleatorio: 2 - Valor de su ataque: 2.5999999999999943
+Ganador del asalto: kururu
+<Fin batalla...>
+<OK: La batalla la ha ganado el escuadron kururu con 4 asaltos
+
+<OK: Escuadrón registrado>
+<OK: Escuadrón registrado>
+<Inicio batalla...>
+Asalto nº 1
+Ataca starro - Nº Aleatorio: 7 - Valor de su ataque: 7.0
+Ataca kururu - Nº Aleatorio: 1 - Valor de su ataque: 125.19999999999999
+Ganador del asalto: kururu
+Asalto nº 2
+Ataca starro - Nº Aleatorio: 8 - Valor de su ataque: 8.0
+Ataca kururu - Nº Aleatorio: 7 - Valor de su ataque: 131.2
+Ganador del asalto: kururu
+Asalto nº 3
+Ataca starro - Nº Aleatorio: 4 - Valor de su ataque: 4.0
+Ataca kururu - Nº Aleatorio: 2 - Valor de su ataque: 126.19999999999999
+Ganador del asalto: kururu
+Asalto nº 4
+Ataca starro - Nº Aleatorio: 0 - Valor de su ataque: 0.0
+Ataca kururu - Nº Aleatorio: 2 - Valor de su ataque: 126.19999999999999
+Ganador del asalto: kururu
+Asalto nº 5
+Ataca starro - Nº Aleatorio: 1 - Valor de su ataque: 1.0
+Ataca kururu - Nº Aleatorio: 9 - Valor de su ataque: 133.2
+Ganador del asalto: kururu
+<Fin batalla...>
+<OK: La batalla la ha ganado el escuadron kururu con 5 asaltos
+
+<Inicio batalla...>
+Asalto nº 1
+Ataca auton - Nº Aleatorio: 8 - Valor de su ataque: 8.0
+Ataca ashtar - Nº Aleatorio: 9 - Valor de su ataque: 88.0
+Ganador del asalto: ashtar
+Asalto nº 2
+Ataca auton - Nº Aleatorio: 5 - Valor de su ataque: 5.0
+Ataca ashtar - Nº Aleatorio: 0 - Valor de su ataque: 79.0
+Ganador del asalto: ashtar
+Asalto nº 3
+Ataca auton - Nº Aleatorio: 2 - Valor de su ataque: 2.0
+Ataca ashtar - Nº Aleatorio: 3 - Valor de su ataque: 82.0
+Ganador del asalto: ashtar
+Asalto nº 4
+Ataca auton - Nº Aleatorio: 1 - Valor de su ataque: 1.0
+Ataca ashtar - Nº Aleatorio: 6 - Valor de su ataque: 85.0
+Ganador del asalto: ashtar
+Asalto nº 5
+Ataca auton - Nº Aleatorio: 0 - Valor de su ataque: 0.0
+Ataca ashtar - Nº Aleatorio: 3 - Valor de su ataque: 82.0
+Ganador del asalto: ashtar
+<Fin batalla...>
+<OK: La batalla la ha ganado el escuadron ashtar con 5 asaltos
+
+<OK: Propiedad mejorada>
+<Inicio batalla...>
+Asalto nº 1
+Ataca saiyajin - Nº Aleatorio: 4 - Valor de su ataque: -36.0
+Ataca starro - Nº Aleatorio: 4 - Valor de su ataque: 110.0
+Ganador del asalto: starro
+Asalto nº 2
+Ataca saiyajin - Nº Aleatorio: 5 - Valor de su ataque: -35.0
+Ataca starro - Nº Aleatorio: 4 - Valor de su ataque: 110.0
+Ganador del asalto: starro
+Asalto nº 3
+Ataca saiyajin - Nº Aleatorio: 6 - Valor de su ataque: -34.0
+Ataca starro - Nº Aleatorio: 2 - Valor de su ataque: 108.0
+Ganador del asalto: starro
+Asalto nº 4
+Ataca saiyajin - Nº Aleatorio: 4 - Valor de su ataque: -36.0
+Ataca starro - Nº Aleatorio: 5 - Valor de su ataque: 111.0
+Ganador del asalto: starro
+Asalto nº 5
+Ataca saiyajin - Nº Aleatorio: 9 - Valor de su ataque: -31.0
+Ataca starro - Nº Aleatorio: 0 - Valor de su ataque: 106.0
+Ganador del asalto: starro
+<Fin batalla...>
+<OK: La batalla la ha ganado el escuadron starro con 5 asaltos
+
+<Inicio batalla...>
+Asalto nº 1
+Ataca saiyajin - Nº Aleatorio: 5 - Valor de su ataque: -35.0
+Ataca starro - Nº Aleatorio: 6 - Valor de su ataque: 112.0
+Ganador del asalto: starro
+Asalto nº 2
+Ataca saiyajin - Nº Aleatorio: 0 - Valor de su ataque: -40.0
+Ataca starro - Nº Aleatorio: 9 - Valor de su ataque: 115.0
+Ganador del asalto: starro
+Asalto nº 3
+Ataca saiyajin - Nº Aleatorio: 9 - Valor de su ataque: -31.0
+Ataca starro - Nº Aleatorio: 1 - Valor de su ataque: 107.0
+Ganador del asalto: starro
+Asalto nº 4
+Ataca saiyajin - Nº Aleatorio: 8 - Valor de su ataque: -32.0
+Ataca starro - Nº Aleatorio: 8 - Valor de su ataque: 114.0
+Ganador del asalto: starro
+Asalto nº 5
+Ataca saiyajin - Nº Aleatorio: 8 - Valor de su ataque: -32.0
+Ataca starro - Nº Aleatorio: 4 - Valor de su ataque: 110.0
+Ganador del asalto: starro
+<Fin batalla...>
+<OK: La batalla la ha ganado el escuadron starro con 5 asaltos
+
+<Inicio batalla...>
+Asalto nº 1
+Ataca ashtar - Nº Aleatorio: 6 - Valor de su ataque: 176.0
+Ataca saiyajin - Nº Aleatorio: 3 - Valor de su ataque: 3.0
+Ganador del asalto: ashtar
+Asalto nº 2
+Ataca ashtar - Nº Aleatorio: 6 - Valor de su ataque: 176.0
+Ataca saiyajin - Nº Aleatorio: 1 - Valor de su ataque: 1.0
+Ganador del asalto: ashtar
+Asalto nº 3
+Ataca ashtar - Nº Aleatorio: 2 - Valor de su ataque: 172.0
+Ataca saiyajin - Nº Aleatorio: 8 - Valor de su ataque: 8.0
+Ganador del asalto: ashtar
+Asalto nº 4
+Ataca ashtar - Nº Aleatorio: 1 - Valor de su ataque: 171.0
+Ataca saiyajin - Nº Aleatorio: 3 - Valor de su ataque: 3.0
+Ganador del asalto: ashtar
+Asalto nº 5
+Ataca ashtar - Nº Aleatorio: 4 - Valor de su ataque: 174.0
+Ataca saiyajin - Nº Aleatorio: 9 - Valor de su ataque: 9.0
+Ganador del asalto: ashtar
+<Fin batalla...>
+<OK: La batalla la ha ganado el escuadron ashtar con 5 asaltos
+
+< ERROR 006: Propiedad incorrecta>
+<Inicio batalla...>
+Asalto nº 1
+Ataca icheb - Nº Aleatorio: 7 - Valor de su ataque: 7.0
+Ataca kururu - Nº Aleatorio: 8 - Valor de su ataque: 146.2
+Ganador del asalto: kururu
+Asalto nº 2
+Ataca icheb - Nº Aleatorio: 6 - Valor de su ataque: 6.0
+Ataca kururu - Nº Aleatorio: 5 - Valor de su ataque: 143.2
+Ganador del asalto: kururu
+Asalto nº 3
+Ataca icheb - Nº Aleatorio: 5 - Valor de su ataque: 5.0
+Ataca kururu - Nº Aleatorio: 8 - Valor de su ataque: 146.2
+Ganador del asalto: kururu
+Asalto nº 4
+Ataca icheb - Nº Aleatorio: 7 - Valor de su ataque: 7.0
+Ataca kururu - Nº Aleatorio: 8 - Valor de su ataque: 146.2
+Ganador del asalto: kururu
+Asalto nº 5
+Ataca icheb - Nº Aleatorio: 1 - Valor de su ataque: 1.0
+Ataca kururu - Nº Aleatorio: 0 - Valor de su ataque: 138.2
+Ganador del asalto: kururu
+<Fin batalla...>
+<OK: La batalla la ha ganado el escuadron kururu con 5 asaltos
+
+< ERROR 007: Ya existe un escuadron con ese nombre
+<OK: Escuadrón registrado>
+<Inicio batalla...>
+Asalto nº 1
+Ataca muzzy - Nº Aleatorio: 7 - Valor de su ataque: 23.650000000000006
+Ataca icheb - Nº Aleatorio: 9 - Valor de su ataque: 58.5
+Ganador del asalto: icheb
+Asalto nº 2
+Ataca muzzy - Nº Aleatorio: 5 - Valor de su ataque: 21.650000000000006
+Ataca icheb - Nº Aleatorio: 9 - Valor de su ataque: 58.5
+Ganador del asalto: icheb
+Asalto nº 3
+Ataca muzzy - Nº Aleatorio: 8 - Valor de su ataque: 24.650000000000006
+Ataca icheb - Nº Aleatorio: 7 - Valor de su ataque: 56.5
+Ganador del asalto: icheb
+Asalto nº 4
+Ataca muzzy - Nº Aleatorio: 2 - Valor de su ataque: 18.650000000000006
+Ataca icheb - Nº Aleatorio: 9 - Valor de su ataque: 58.5
+Ganador del asalto: icheb
+Asalto nº 5
+Ataca muzzy - Nº Aleatorio: 0 - Valor de su ataque: 16.650000000000006
+Ataca icheb - Nº Aleatorio: 1 - Valor de su ataque: 50.5
+Ganador del asalto: icheb
+<Fin batalla...>
+<OK: La batalla la ha ganado el escuadron icheb con 5 asaltos
+
+< CLASIFICACION ACTUAL >
+Terran {nombre=auton, victorias=0, edificios=8, tecnologia=6}
+Zerg {nombre=muzzy, victorias=0, esbirros=5, overlords=6}
+Terran {nombre=saiyajin, victorias=0, edificios=4, tecnologia=5}
+
+Goodbye!
