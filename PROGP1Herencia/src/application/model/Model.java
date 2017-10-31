@@ -15,9 +15,11 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Model
 {
     private Map<String, Squad> squads;
+    private List<Battle> battles;
 
     public Model() {
         squads = new HashMap<>();
+        battles = new ArrayList<>();
     }
 
     public String addSquad(LinkedList<String> splittedOperation) throws InvalidDataException, AlreadyExistsException
@@ -72,53 +74,15 @@ public class Model
             throw new InvalidDataException("< ERROR 001: Nº de argumentos inválido >");
         }
         // Check if squads contains the specified squads to battle
-        String squadName1 = splittedOperation.pop().toLowerCase(), squadName2 = splittedOperation.pop().toLowerCase();
-        if(!squads.containsKey(squadName1) || !squads.containsKey(squadName2)) {
+        String squad1Name = splittedOperation.pop().toLowerCase(), squad2Name = splittedOperation.pop().toLowerCase();
+        if(!squads.containsKey(squad1Name) || !squads.containsKey(squad2Name)) {
             throw new DoesntExistException();
         }
         // BATTLE DATA INITIALIZATION
-        Squad squad1 = squads.get(squadName1), squad2 = squads.get(squadName2);
-        String squad1Name = squad1.getName(), squad2Name = squad2.getName();
-        double squad1Atk = squad1.calculateAtkPower(), squad2Atk = squad2.calculateAtkPower();
-        double squad1Def = squad1.calculateDefPower(), squad2Def = squad2.calculateDefPower();
-        double squad1FinalAtk = (squad1Atk - squad2Def) > 0 ? squad1Atk - squad2Atk : 0;
-        double squad2FinalAtk = (squad2Atk - squad1Def) > 0 ? squad2Atk - squad1Def : 0;
-        int squad1WonRounds = 0, squad2WonRounds = 0;
-
-        /* BATTLE BEGIN */
-        StringBuilder output = new StringBuilder("<Inicio batalla...>\n");
-        for(int i = 0; i < GameStatics.BATTLE_ROUNDS; i++) {
-            int randomNumSquad1 = ThreadLocalRandom.current().nextInt(0, GameStatics.MAX_RANDOM_NUMBER + 1);
-            int randomNumSquad2 = ThreadLocalRandom.current().nextInt(0, GameStatics.MAX_RANDOM_NUMBER + 1);
-            /* ROUND BEGIN */
-            output.append("Asalto nº ").append(i+1).append("\n");
-            output.append("Ataca ").append(squad1Name).append(" - Nº Aleatorio: ").append(randomNumSquad1)
-                    .append(" - Valor de su ataque: ").append(squad1FinalAtk + randomNumSquad1).append("\n");
-            output.append("Ataca ").append(squad2Name).append(" - Nº Aleatorio: ").append(randomNumSquad2)
-                    .append(" - Valor de su ataque: ").append(squad2FinalAtk + randomNumSquad2).append("\n");
-            /* ROUND END, SUMMARY OF THE ROUND */
-            if(squad1FinalAtk + randomNumSquad1 > squad2FinalAtk + randomNumSquad2) { // Squad 1 wins round
-                output.append("Ganador del asalto: ").append(squad1Name).append("\n");
-                squad1WonRounds++;
-            } else if(squad1FinalAtk + randomNumSquad1 < squad2FinalAtk + randomNumSquad2) { // Squad 2 wins round
-                output.append("Ganador del asalto: ").append(squad2Name).append("\n");
-                squad2WonRounds++;
-            } else { // Draw
-                output.append("Asalto sin ganador. Ha habido empate.\n");
-            }
-        }
-        /* BATTLE END, SUMMARY OF THE BATTLE */
-        output.append("<Fin batalla...>\n");
-        if(squad1WonRounds > squad2WonRounds) { // Squad 1 wins battle
-            output.append("<OK: La batalla la ha ganado el escuadron ").append(squad1Name).append(" con ").append(squad1WonRounds).append(" asaltos>\n");
-            squad1.addVictory();
-        } else if(squad1WonRounds < squad2WonRounds) { // Squad 2 wins battle
-            output.append("<OK: La batalla la ha ganado el escuadron ").append(squad2Name).append(" con ").append(squad2WonRounds).append(" asaltos>\n");
-            squad2.addVictory();
-        } else { // Draw
-            output.append("<OK: La batalla ha acabado en empate>\n");
-        }
-        return output.toString();
+        Squad squad1 = squads.get(squad1Name), squad2 = squads.get(squad2Name);
+        Battle battle = new Battle(squad1, squad2);
+        battles.add(battle);
+        return battle.getBattleLog();
     }
 
     public String improveSquad(LinkedList<String> splittedOperation) throws InvalidDataException, DoesntExistException
@@ -158,6 +122,47 @@ public class Model
         StringBuilder output = new StringBuilder("< CLASIFICACION ACTUAL >\n");
         for(int i = 0; i < ((squads.size() < GameStatics.NUM_SQUADS_RANKING) ? squads.size() : GameStatics.NUM_SQUADS_RANKING); i++) {
             output.append(ranking.get(i).toString());
+        }
+        return output.toString();
+    }
+
+    public String listBattles(LinkedList<String> splittedOperation) throws InvalidDataException {
+        if(battles.isEmpty()) {
+            return "< BATALLAS: No hay batallas registradas >";
+        }
+        if(splittedOperation.size() > 1) {
+            throw new InvalidDataException("< ERROR 001: Nº de argumentos inválido >");
+        }
+        Collections.sort(battles);
+        StringBuilder output = new StringBuilder();
+        // Used to display the existing battles
+        if(splittedOperation.size() == 0) {
+            output.append("< BATALLAS REGISTRADAS >\n");
+            for (int i = 0; i < battles.size(); i++) {
+                Battle battle = battles.get(i);
+                Squad squad1 = battle.getSquad1(), squad2 = battle.getSquad2();
+                output.append("--- BATALLA ").append(i+1).append(" ---\n Escuadron 1: ").append(squad1.toString())
+                        .append("\t\tVS\n").append("Escuadron 2: ").append(squad2.toString()).append("\n")
+                        .append("Ganador: ").append(battle.getWinner().getName()).append("\n\n");
+            }
+        } else { // Used to display the details of one battle
+            int battleIndex;
+            try {
+                battleIndex = Integer.parseInt(splittedOperation.pop());
+                if(battleIndex <= 0) {
+                    throw new InvalidDataException("< ERROR 003: Dato incorrecto >");
+                }
+            } catch (NumberFormatException e) {
+                throw new InvalidDataException("< ERROR 003: Dato incorrecto >");
+            }
+            if(battleIndex > battles.size()) {
+                return "< ERROR 008: La batalla indicada no existe >";
+            }
+            Battle battle = battles.get(battleIndex - 1);
+            Squad squad1 = battle.getSquad1(), squad2 = battle.getSquad2();
+            output.append("< MOSTRANDO EL REGISTRO DE BATALLA DE ").append(squad1.getName()).append(" VS ")
+                    .append(squad2.getName()).append(" (").append(battle.getBattleDate().toString()).append(") >\n\n")
+                    .append(battle.getBattleLog());
         }
         return output.toString();
     }

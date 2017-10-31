@@ -57,6 +57,12 @@ public class Controller
                 } catch (InvalidDataException | DoesntExistException e) {
                     output = e.getMessage();
                 } break;
+            case "B":
+                try {
+                    output = model.listBattles(splittedOperation);
+                } catch (InvalidDataException e) {
+                    output = e.getMessage();
+                } break;
             case "C": output = model.getRanking(); break;
             case "S": output = "Goodbye!"; gameLoop = false; break;
             default: output = "< ERROR 004: Operación incorrecta >\n";
