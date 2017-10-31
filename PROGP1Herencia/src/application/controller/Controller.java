@@ -38,7 +38,7 @@ public class Controller
     }
 
     public void processOperation() {
-        switch(splittedOperation.pop()) {
+        switch(splittedOperation.pop()) { // This switch could be tremendously simpler without using exceptions on the model and just returning a String with the error case
             case "A":
                 try {
                     output = model.addSquad(splittedOperation);

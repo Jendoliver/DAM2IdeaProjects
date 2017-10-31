@@ -1,10 +1,14 @@
 package application.model.entities;
 
+/**
+ * Squad: Contains the abstract methods for its subclasses
+ * to implement and its general fields
+ */
 public abstract class Squad implements Comparable<Squad>
 {
     private String name;
     private int nVictories;
-    protected int atkLevel; // Declared protected because calculations need the methods quite a lot
+    protected int atkLevel; // Declared protected to avoid calling the getters on the subclasses
     protected int defLevel;
 
     public Squad(String name, int atkLevel, int defLevel) {
