@@ -1,5 +1,7 @@
 package application.model.entities;
 
+import application.model.exceptions.InvalidDataException;
+
 public class ProtossSquad extends Squad
 {
     private int nPylons;
@@ -27,12 +29,11 @@ public class ProtossSquad extends Squad
     }
 
     @Override
-    public boolean improve(String propertyToImprove, int newPropertyValue) {
+    public void improve(String propertyToImprove, int newPropertyValue) throws InvalidDataException {
         if(propertyToImprove.equals("pilones")) {
             this.setnPylons(newPropertyValue);
-            return true;
         }
-        return false;
+        throw new InvalidDataException("< ERROR 006: Propiedad incorrecta >");
     }
 
     @Override

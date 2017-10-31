@@ -145,10 +145,8 @@ public class Model
             throw new InvalidDataException("< ERROR 003: Dato incorrecto >");
         }
         // Improve the squad depending on its type (delegates the improvement to Squad and its subclasses, who will check if the property is correct)
-        if(squadToImprove.improve(propertyToImprove, newPropertyValue)) {
-            return "<OK: Propiedad mejorada>";
-        }
-        throw new InvalidDataException("< ERROR 006: Propiedad incorrecta>");
+        squadToImprove.improve(propertyToImprove, newPropertyValue);
+        return "<OK: Propiedad mejorada>";
     }
 
     public String getRanking() {

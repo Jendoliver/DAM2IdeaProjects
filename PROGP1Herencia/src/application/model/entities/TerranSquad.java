@@ -1,5 +1,7 @@
 package application.model.entities;
 
+import application.model.exceptions.InvalidDataException;
+
 public class TerranSquad extends Squad
 {
     private int nBuildings;
@@ -35,13 +37,12 @@ public class TerranSquad extends Squad
     }
 
     @Override
-    public boolean improve(String propertyToImprove, int newPropertyValue) {
+    public void improve(String propertyToImprove, int newPropertyValue) throws InvalidDataException {
         switch(propertyToImprove) {
             case "edificios": this.setnBuildings(newPropertyValue); break;
             case "tecnologia": this.setTechLevel(newPropertyValue); break;
-            default: return false;
+            default: throw new InvalidDataException("< ERROR 006: Propiedad incorrecta >");
         }
-        return true;
     }
 
     @Override

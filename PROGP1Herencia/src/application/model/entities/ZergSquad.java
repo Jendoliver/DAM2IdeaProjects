@@ -1,5 +1,7 @@
 package application.model.entities;
 
+import application.model.exceptions.InvalidDataException;
+
 public class ZergSquad extends Squad
 {
     private int nMinions;
@@ -36,13 +38,12 @@ public class ZergSquad extends Squad
     }
 
     @Override
-    public boolean improve(String propertyToImprove, int newPropertyValue) {
+    public void improve(String propertyToImprove, int newPropertyValue) throws InvalidDataException {
         switch(propertyToImprove) {
             case "esbirros": this.setnMinions(newPropertyValue); break;
             case "overlords": this.setnOverlords(newPropertyValue); break;
-            default: return false;
+            default: throw new InvalidDataException("< ERROR 006: Propiedad incorrecta >");
         }
-        return true;
     }
 
     @Override

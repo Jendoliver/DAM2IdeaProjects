@@ -1,5 +1,7 @@
 package application.model.entities;
 
+import application.model.exceptions.InvalidDataException;
+
 /**
  * Squad: Contains the abstract methods for its subclasses
  * to implement and its general fields
@@ -34,7 +36,7 @@ public abstract class Squad implements Comparable<Squad>
 
     public abstract double calculateAtkPower();
     public abstract double calculateDefPower();
-    public abstract boolean improve(String propertyToImprove, int newPropertyValue);
+    public abstract void improve(String propertyToImprove, int newPropertyValue) throws InvalidDataException;
 
     @Override
     public abstract String toString();
