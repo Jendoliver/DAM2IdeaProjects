@@ -39,7 +39,7 @@ public class Battle implements Comparable<Battle>
         String squad1Name = squad1.getName(), squad2Name = squad2.getName();
         double squad1Atk = squad1.calculateAtkPower(), squad2Atk = squad2.calculateAtkPower();
         double squad1Def = squad1.calculateDefPower(), squad2Def = squad2.calculateDefPower();
-        double squad1FinalAtk = (squad1Atk - squad2Def) > 0 ? squad1Atk - squad2Atk : 0;
+        double squad1FinalAtk = (squad1Atk - squad2Def) > 0 ? squad1Atk - squad2Def : 0;
         double squad2FinalAtk = (squad2Atk - squad1Def) > 0 ? squad2Atk - squad1Def : 0;
         int squad1WonRounds = 0, squad2WonRounds = 0;
 

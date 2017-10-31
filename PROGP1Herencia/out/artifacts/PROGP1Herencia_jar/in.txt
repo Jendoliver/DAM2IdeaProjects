@@ -8,6 +8,7 @@ A zerg Ashtar 25 a 12 8
 A zerg Ashtar 20 18 24 4
 A terran Icheb 32 4 6 5
 R
+B
 R Ashtar Icheb
 R Otro Auton
 M Kururu pilones 5
@@ -31,4 +32,7 @@ A zerg Auton 34 12 7 5
 A zerg Muzzy 31 25 5 6
 R Muzzy Icheb
 C
+B
+B 0
+B 2
 S
