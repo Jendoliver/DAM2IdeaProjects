@@ -34,11 +34,14 @@ public class Controller
         return gameLoop;
     }
     public void setOperation(String operation) {
-        splittedOperation = new LinkedList<>(Arrays.asList(operation.split("\\s+")));
+        if(operation != null)
+            splittedOperation = new LinkedList<>(Arrays.asList(operation.split("\\s+")));
+        else
+            splittedOperation = new LinkedList<>();
     }
 
     public void processOperation() {
-        switch(splittedOperation.pop()) { // This switch could be tremendously simpler without using exceptions on the model and just returning a String with the error case
+        switch(splittedOperation.pop()) {
             case "A":
                 try {
                     output = model.addSquad(splittedOperation);

@@ -43,6 +43,6 @@ public abstract class Squad implements Comparable<Squad>
 
     @Override
     public int compareTo(Squad squad) {
-        return Integer.compare(nVictories, squad.nVictories);
+        return Integer.compare(squad.nVictories, nVictories);
     }
 }
