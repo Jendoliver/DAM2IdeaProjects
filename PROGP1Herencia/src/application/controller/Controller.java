@@ -41,34 +41,24 @@ public class Controller
     }
 
     public void processOperation() {
-        switch(splittedOperation.pop()) {
-            case "A":
-                try {
-                    output = model.addSquad(splittedOperation);
-                } catch (InvalidDataException | AlreadyExistsException e) {
-                    output = e.getMessage();
-                } break;
-            case "R":
-                try {
-                    output = model.registerBattle(splittedOperation);
-                } catch (InvalidDataException | DoesntExistException e) {
-                    output = e.getMessage();
-                } break;
-            case "M":
-                try {
-                    output = model.improveSquad(splittedOperation);
-                } catch (InvalidDataException | DoesntExistException e) {
-                    output = e.getMessage();
-                } break;
-            case "B":
-                try {
-                    output = model.listBattles(splittedOperation);
-                } catch (InvalidDataException e) {
-                    output = e.getMessage();
-                } break;
-            case "C": output = model.getRanking(); break;
-            case "S": output = "Goodbye!"; gameLoop = false; break;
-            default: output = "< ERROR 004: Operación incorrecta >\n";
+        try {
+            switch(splittedOperation.pop()) {
+                case "A": output = model.addSquad(splittedOperation); break;
+                case "R": output = model.registerBattle(splittedOperation); break;
+                case "M": output = model.improveSquad(splittedOperation); break;
+                case "B": output = model.listBattles(splittedOperation); break;
+                case "C": output = model.getRanking(splittedOperation); break;
+                case "S":
+                    if(splittedOperation.isEmpty()) {
+                        output = "Goodbye!";
+                        gameLoop = false;
+                    } else {
+                        output = "< ERROR 001: Nº de argumentos inválido >";
+                    } break;
+                default: output = "< ERROR 004: Operación incorrecta >\n";
+            }
+        } catch (AlreadyExistsException | DoesntExistException | InvalidDataException e) {
+            output = e.getMessage();
         }
     }
 }

@@ -32,8 +32,9 @@ public class ProtossSquad extends Squad
     public void improve(String propertyToImprove, int newPropertyValue) throws InvalidDataException {
         if(propertyToImprove.equals("pilones")) {
             this.setnPylons(newPropertyValue);
+        } else {
+            throw new InvalidDataException("< ERROR 006: Propiedad incorrecta >");
         }
-        throw new InvalidDataException("< ERROR 006: Propiedad incorrecta >");
     }
 
     @Override

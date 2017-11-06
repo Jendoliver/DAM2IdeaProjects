@@ -112,7 +112,10 @@ public class Model
         return "<OK: Propiedad mejorada>";
     }
 
-    public String getRanking() {
+    public String getRanking(LinkedList<String> splittedOperation) throws InvalidDataException {
+        if(!splittedOperation.isEmpty()) {
+            throw new InvalidDataException("< ERROR 001: Nº de argumentos inválido >");
+        }
         if(squads.isEmpty()) {
             return "< CLASIFICACION: No hay escuadrones registrados >";
         }
@@ -140,7 +143,8 @@ public class Model
             for (int i = 0; i < battles.size(); i++) {
                 Battle battle = battles.get(i);
                 Squad squad1 = battle.getSquad1(), squad2 = battle.getSquad2();
-                output.append("--- BATALLA ").append(i+1).append(" ---\n Escuadron 1: ").append(squad1.toString())
+                output.append("--- BATALLA ").append(i+1).append(" ( Fecha de la batalla: ").append(battle.getBattleDate())
+                        .append(" ) ---\n Escuadron 1: ").append(squad1.toString())
                         .append("\t\tVS\n").append("Escuadron 2: ").append(squad2.toString()).append("\n")
                         .append("Ganador: ").append(battle.getWinner().getName()).append("\n\n");
             }
